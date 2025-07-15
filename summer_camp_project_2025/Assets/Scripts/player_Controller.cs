@@ -8,7 +8,7 @@ public class player_Controller : MonoBehaviour
     public float rotateSpeed = 75f;
     public float jumpForce;
     public Rigidbody rig;
-
+    public int health;
     public int coinCount;
     void Move()
     {
@@ -24,6 +24,8 @@ public class player_Controller : MonoBehaviour
 
         //Set that as our velocity
         rig.velocity = dir;
+
+        //rig.MoveRotation(rig.rotation + AngleRot)
     }
 
     void tryJump ()
@@ -33,12 +35,12 @@ public class player_Controller : MonoBehaviour
 
         //shoot the raycast
         if (Physics.Raycast(ray,1.5f)) {
-            rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rig.AddForce(Vector3.up * jumpForce, mode: ForceMode.Impulse);
         }
     }
-    
-    // Start is called before the first frame update
-    void Start()
+
+        // Start is called before the first frame update
+        void Start()
     {
         
     }
