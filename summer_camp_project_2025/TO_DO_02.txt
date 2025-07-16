@@ -1,10 +1,5 @@
 street props
 building roof props
-cables
-volumetrics
 lighting
-adjust building heights
-finish path
-fix road UV's
 model character
 model enemies
