@@ -22,9 +22,14 @@ public class game_Manager : MonoBehaviour
     public int countdown;
     public TMP_Text countdownText;
 
+    [Header("EndScreenUI")]
+    public TMP_Text endUI_score;
+    public TMP_Text endUI_time;
+
     [Header("Screens")]
     public GameObject countdownUI;
-    public GameObject gameUI;   
+    public GameObject gameUI;
+    public GameObject endUI;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +41,6 @@ public class game_Manager : MonoBehaviour
 
         //initially disables player movement
         player.enabled = false;
-        StartCoroutine(CountDownRoutine());
 
         //set screen to the countdown
         SetScreen(countdownUI);
@@ -61,6 +65,9 @@ public class game_Manager : MonoBehaviour
 
         player.enabled = true;
 
+        //start the game
+        startGame();
+
     }
     public void startGame()
 
@@ -73,6 +80,22 @@ public class game_Manager : MonoBehaviour
     {
         timeActive = false;
         player.enabled = false;
+
+        //set the endscreen to show stats
+        endUI_score.text = "Coins: " + player.coinCount;
+        endUI_time.text = "Time: " + (time *1).ToString("F2");
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        
+        SetScreen(endUI);
+
+    }
+
+    public void OnRestartButton()
+    {
+        //restart scene to play again
+        SceneManager.LoadScene(0);
     }
 
     void Update()
@@ -84,7 +107,7 @@ public class game_Manager : MonoBehaviour
 
         gameUI_score.text = "Coins: " + player.coinCount;
         gameUI_health.text = "Health: " + player.health;
-        gameUI_time.text = "Time: " + (time * 10).ToString("F2");
+        gameUI_time.text = "Time: " + (time * 1).ToString("F2");
 
     }
 
@@ -93,6 +116,7 @@ public class game_Manager : MonoBehaviour
         //disable all other screens
         gameUI.SetActive(false);
         countdownUI.SetActive(false);
+        endUI.SetActive(false);
 
         //activate the requested screen
         Screen.SetActive(true);

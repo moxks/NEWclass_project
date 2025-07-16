@@ -364,6 +364,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.2.21f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.2.21f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/camera_Controller.cs"
+"Assets/Scripts/enemyBehavior.cs"
 "Assets/Scripts/finish_Line.cs"
 "Assets/Scripts/game_Manager.cs"
 "Assets/Scripts/pickup_01.cs"
